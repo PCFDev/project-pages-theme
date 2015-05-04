@@ -52,3 +52,17 @@
     <!-- /.container-fluid -->
   </div>
 </nav>
+<ol class="breadcrumb">
+{% for p in page.ancestors %}
+	<li><a href="{{ p.url }}">{{ p.title }}</a>
+	<li class="divider">&gt;</li>
+{% endfor %}
+	<li class="active">{{ page.title }}</li>
+</ol>
+<hr />
+{%if page.parentUrl != null and page.parentUrl != "" %}
+<ol class="breadcrumb">
+  <li><a href="{{page.parentUrl}}">{{page.parentTitle}}</a></li>
+  <li class="active">{{page.title}}</li>
+</ol>
+{% endif %} 
